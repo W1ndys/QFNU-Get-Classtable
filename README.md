@@ -6,6 +6,8 @@
 
 脚本有疑问请提交 issues
 
+**不要在国内任何平台传播此脚本**
+
 ## 版权信息
 
 脚本开发者：[W1ndys](https://github.com/W1ndys)
