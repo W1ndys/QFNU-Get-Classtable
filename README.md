@@ -4,6 +4,14 @@
 
 不知道啥时候，很久之前了，教务系统更新了不让提前看下学期的课表。本脚本旨在提前下载课表查看。
 
+## 版权信息
+
+脚本开发者：[W1ndys](https://github.com/W1ndys)
+
+脚本思路启发：[Giant_GKL](https://github.com/GiantGKL)
+
+手动下载教程请看大 G 哥（Giant_GKL）的博客：[Giant_GKL's Blog – 有朝一日，我们必将理解那些不能理解的东西。 (giantgkl.xyz)](https://giantgkl.xyz/289/qfnu教务系统绕过限制查看下学期课表/)
+
 ## 环境要求
 
 - Python 3.x
