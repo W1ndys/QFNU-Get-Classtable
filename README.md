@@ -1,6 +1,6 @@
 # QFNUGetClasstable
 
-曲阜师范大学教务系统课程表越过学期限制下载
+曲阜师范大学课表绕过学期限制xls导出脚本
 
 旧版脚本：[QFNUGetClasstable v1](https://github.com/W1ndys/QFNUGetClasstable/tree/main/v1)
 
