@@ -66,7 +66,7 @@ QFNUGetClasstable 是一个用于从曲阜师范大学教务系统下载课程�
 
 ## 许可证
 
-本项目采用 [MIT 许可证](LICENSE)。
+本项目采用 [GPL-3.0 许可证](LICENSE)。
 
 ## 联系方式
 
