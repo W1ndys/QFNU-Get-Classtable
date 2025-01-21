@@ -13,12 +13,14 @@ QFNUGetClasstable 是一个用于从曲阜师范大学教务系统下载课程�
 ## 安装步骤
 
 1. 克隆本项目到本地：
+
    ```bash
    git clone https://github.com/W1ndys/QFNUGetClasstable.git
    cd QFNUGetClasstable
    ```
 
-2. 安装所需的Python库：
+2. 安装所需的 Python 库：
+
    ```bash
    pip install -r requirements.txt
    ```
@@ -34,19 +36,21 @@ QFNUGetClasstable 是一个用于从曲阜师范大学教务系统下载课程�
 ## 使用方法
 
 1. 运行脚本：
+
    ```bash
    python main.py
    ```
 
 2. 按照提示输入学期信息，例如：`2024-2025-1`。
 
-3. 脚本将自动下载并保存课程表为xls文件。
+3. 脚本将自动下载并保存课程表为 xls 文件。
 
 ## 快速创建和激活虚拟环境
 
 本项目提供了用于快速创建和激活虚拟环境的脚本：
 
 - **Windows:**
+
   - `create_venv_windows.bat`: 创建并激活虚拟环境，同时安装`requirements.txt`中的依赖。
   - `open_venv_terminal_windows.bat`: 打开一个新的命令提示符窗口并激活虚拟环境。
 
@@ -62,7 +66,7 @@ QFNUGetClasstable 是一个用于从曲阜师范大学教务系统下载课程�
 
 ## 贡献
 
-欢迎贡献代码！如果你有任何改进建议或发现了bug，请提交issue或pull request。
+欢迎贡献代码！如果你有任何改进建议或发现了 bug，请提交 issue 或 pull request。
 
 ## 许可证
 
