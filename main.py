@@ -61,23 +61,17 @@ def generate_encoded_string(data_str, user_account, user_password):
     返回: encoded字符串
     """
     res = data_str.split("#")
-    if len(res) < 2:
-        raise ValueError("初始数据字符串格式不正确")
-
     code, sxh = res[0], res[1]
     data = f"{user_account}%%%{user_password}"
     encoded = ""
     b = 0
 
     for a in range(len(code)):
-        if a < len(data):
+        if a < 20:
             encoded += data[a]
             for _ in range(int(sxh[a])):
-                if b < len(code):
-                    encoded += code[b]
-                    b += 1
-                else:
-                    raise ValueError("编码过程中索引超出范围")
+                encoded += code[b]
+                b += 1
         else:
             encoded += data[a:]
             break
@@ -154,6 +148,20 @@ def simulate_login(user_account, user_password):
     raise Exception("验证码识别错误，请重试")
 
 
+# 获取xls文件
+def get_xls_file(session, cookies, user_account, semester):
+    url = f"http://zhjw.qfnu.edu.cn/jsxsd/xskb/xskb_print.do?xnxq01id={semester}"
+    response = session.get(url, cookies=cookies, timeout=1000)
+    if response.status_code != 200:
+        print(
+            f"获取xls文件失败，状态码: {response.status_code}，错误信息: {response.text}"
+        )
+        return None
+    with open(f"{user_account}-{semester}.xls", "wb") as f:
+        f.write(response.content)
+    return f"{user_account}-{semester}.xls"
+
+
 def print_welcome():
     print("\n" * 30)
     print(f"\n{'*' * 10} 曲阜师范大学教务系统模拟登录脚本 {'*' * 10}\n")
@@ -183,9 +191,14 @@ def main():
         print("无法建立会话，请检查网络连接或教务系统的可用性。")
         return
 
-    # 接下来的操作请参考 https://github.com/W1ndys/QFNUExam2ics/blob/ec6e5b4969b7605ca3654e2545b666376b62b7ef/main.py#L275
-    # 实际上就是带着 session 和 cookies 去请求教务系统，然后获取数据
-    
+    # 等待用户输入学期
+    semester = input("请输入学期（例如：2024-2025-1）: \n")
+    xls_file = get_xls_file(session, cookies, user_account, semester)
+    if xls_file:
+        print(f"已成功获取 {xls_file} 文件")
+    else:
+        print("获取xls文件失败，请检查网络连接或教务系统的可用性。")
+
 
 if __name__ == "__main__":
     main()
