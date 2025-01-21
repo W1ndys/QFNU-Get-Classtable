@@ -1,0 +1,6 @@
+pytz
+requests
+Pillow
+beautifulsoup4
+ddddocr
+python-dotenv
