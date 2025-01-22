@@ -34,6 +34,7 @@ def index():
                 threading.Thread(
                     target=delete_file_after_delay, args=(xls_file, 5)
                 ).start()
+
                 return redirect(url_for("download_file", filename=xls_file))
             else:
                 flash("获取xls文件失败，请检查网络连接或教务系统的可用性。", "danger")
@@ -47,6 +48,7 @@ def index():
 
 @app.route("/download/<filename>")
 def download_file(filename):
+    flash("文件下载成功！", "success")
     return send_file(filename, as_attachment=True)
 
 

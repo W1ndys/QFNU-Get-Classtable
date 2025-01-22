@@ -23,8 +23,6 @@
             <div class="form-group">
                 <label for="semester">学期</label>
                 <select class="form-control" id="semester" name="semester" required>
-                    <option value="2025-2026-2">2025-2026-2</option>
-                    <option value="2025-2026-1">2025-2026-1</option>
                     <option value="2024-2025-2">2024-2025-2</option>
                     <option value="2024-2025-1">2024-2025-1</option>
                     <option value="2023-2024-2">2023-2024-2</option>
@@ -47,6 +45,17 @@
         {% endif %}
         {% endwith %}
     </div>
+
+    <script>
+        // 检查是否有下载成功的消息
+        const messages = {{ get_flashed_messages(with_categories=true) | tojson }};
+        if (messages.some(([category, message]) => category === 'success' && message.includes('文件下载成功'))) {
+            // 如果有下载成功的消息，自动重定向到主页
+            setTimeout(() => {
+                window.location.href = "{{ url_for('index') }}";
+            }, 1000); // 1秒后重定向
+        }
+    </script>
 </body>
 
 </html>
